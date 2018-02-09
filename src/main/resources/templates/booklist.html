@@ -7,13 +7,49 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Pacifico" />
-    <link rel="stylesheet" href="./css/stylesheet.css" />
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
 
+        li {
+            float: left;
+        }
 
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #111;
+        }
+
+        .active {
+            background-color: #4CAF50;
+        }
+    </style>
 </head>
+
+<ul>
+    <li><a class="active" href="home">Home</a></li>
+    <li><a  href="booklist">Book List</a></li>
+    <li><a  href="/addbook">Add Book</a></li>
+    <li><a  href="/borrowlist">Borrow Book</a></li>
+    <li><a  href="/returnlist">Return Book</a></li>
+</ul>
+
 <body>
 <table>
-    <b>book Inventory </b>
+
+    <b>Available book Inventory </b>
 
     <tr>
         <td>title</td>
@@ -22,6 +58,7 @@
         <td>ISBN</td>
         <td>Image</td>
         <td>Availability</td>
+        <td>Action</td>
     </tr>
     <tr th:each="book :${books}">
         <td th:text ="${book.title}"> </td>
@@ -29,13 +66,13 @@
         <td th:text ="${book.yearofPublication}"> </td>
         <td th:text ="${book.isbn}"> </td>
         <td th:text ="${book.image}"> </td>
+        <td th:text ="${book.status}"> </td>
          <td  th:if="${book.status}">
                 <th>Available</th></td>
         <td th:unless="${book.status}">
                 <th>Not Available</th></td>
     </tr>
 </table>
-<a href="/">Go to home page</a>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

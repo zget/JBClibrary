@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 
 public interface BookRepository extends CrudRepository<Book, Long> {
 
+     Iterable<Book> findByStatusTrue();
+    Iterable<Book> findByStatusFalse();
 
 
 }

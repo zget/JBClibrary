@@ -26,7 +26,7 @@
             <input type="text" th:field="*{isbn}" />
         </th><br/>
     <label>Image(optional)</label>  <th><span th:if="${#fields.hasErrors('image')}" th:errors="*{image}"></span><br/>
-    <input type="text" th:field="*{image}" /></th>
+    <input type="url" th:field="*{image}" /></th>
 
 
 

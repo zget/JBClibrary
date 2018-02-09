@@ -8,7 +8,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 @Controller
 public class HomeController {
@@ -16,13 +18,17 @@ public class HomeController {
     @Autowired
     BookRepository bookrepo;
 
+
     @RequestMapping("/")
+    public String displayhomeindex(Model model){
+
+        return "index";
+    }
+    @RequestMapping("/home")
     public String displayhomepage(Model model){
 
-
-        return "homepage";
+        return "home";
     }
-
 
     @GetMapping("/addbook")
     public String loadBookForm(Model model){
@@ -38,7 +44,7 @@ public class HomeController {
             return "bookform";
         bookrepo.save(book);
         //bookrepo.findOne(book.getId()).setStatus(true);
-        return "redirect:/booklist";
+        return "index";
     }
     @RequestMapping("/booklist")
     public String bookListDisplay(Model model){
@@ -53,11 +59,23 @@ public class HomeController {
         Book tobeborrowed=bookrepo.findOne(id);
         tobeborrowed.setStatus(false);
         bookrepo.save(tobeborrowed);
+
         return "redirect:/borrowlist";
     }
+
+
     @RequestMapping("/borrowlist")
     public String BorrowListDisplay(Model model){
+
         model.addAttribute("books", bookrepo.findAll());
+        return "borrowlist";
+    }
+
+    @RequestMapping("/borrow")
+    public String BorrowList(Model model){
+
+        model.addAttribute("books", bookrepo.findByStatusTrue());
+
         return "borrowlist";
     }
 
@@ -76,6 +94,11 @@ public class HomeController {
         return "returnlist";
     }
 
+    @RequestMapping("/return")
+    public String ReturnList(Model model){
+        model.addAttribute("books", bookrepo.findByStatusFalse());
+        return "returnlist";
+    }
 
 
 

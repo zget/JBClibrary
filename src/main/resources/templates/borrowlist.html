@@ -3,9 +3,52 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Title</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Pacifico" />
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #111;
+        }
+
+        .active {
+            background-color: #4CAF50;
+        }
+    </style>
 </head>
+
+<ul>
+    <li><a class="active" href="/home">Home</a></li>
+    <li><a href="booklist">Book List</a></li>
+    <li><a href="/addbook">Add Boo</a></li>
+    <li><a href="/borrowlist">Borrow Book</a></li>
+    <li><a href="/returnlist">Return Book</a></li>
+</ul>
+
 <body>
 <table>
+
     <tr><b>book Inventory : </b></tr>
     <tr>
 
@@ -33,7 +76,7 @@
         </td>
     </tr>
 </table>
-<a href="/">Go to home page</a>
+<a href="/borrow">available books</a>
 
 </body>
 </html>
