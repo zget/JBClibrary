@@ -8,13 +8,12 @@
 <form  th:action="@{/processbook}" th:object="${book}" method="post">
     <tr>
 
-        <input type="hidden" th:field="*{id}"/>
+        <td>  <input type="hidden" th:field="*{id}"/></td>
+        <td><span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span><br/>
+            <input type="text" th:field="*{title}" />
+        </td>
 
-        <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span><br/>
-        <input type="text" th:field="*{title}" />
 
-        <span th:if="${#fields.hasErrors('status')}" th:errors="*{status}"></span><br/>
-        <input type="text" th:field="*{status}" />
 
 
     </tr>

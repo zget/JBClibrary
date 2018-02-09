@@ -20,9 +20,10 @@ public class Book {
     private String title;
 
     @NotNull
-    private boolean status=true;
+    private boolean status;
 
     public Book() {
+        status=true;
     }
 
     public long getId() {
@@ -46,11 +47,9 @@ public class Book {
     }
 
     public void setStatus(boolean status) {
-        this.status = true;
+        this.status = status;
     }
 
-    public void setStatusF(boolean newStatus) {
-        status = newStatus;
-    }
+
 
 }

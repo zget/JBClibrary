@@ -45,28 +45,35 @@ public class HomeController {
         model.addAttribute("books", bookrepo.findAll());
         return "booklist";
     }
+
+
+    @GetMapping ("/borrow/{id}")
+    public String borrowBook(@PathVariable("id") long id){
+
+        Book tobeborrowed=bookrepo.findOne(id);
+        tobeborrowed.setStatus(false);
+        bookrepo.save(tobeborrowed);
+        return "redirect:/borrowlist";
+    }
     @RequestMapping("/borrowlist")
     public String BorrowListDisplay(Model model){
         model.addAttribute("books", bookrepo.findAll());
         return "borrowlist";
     }
 
-    @GetMapping ("/borrow/{id}")
-    public String borrowBook(@PathVariable("id") long id){
-
-        Book tobeborrowed=bookrepo.findOne(id);
-        tobeborrowed.setStatusF(false);
-        bookrepo.save(tobeborrowed);
-        return "redirect:/borrowlist";
-    }
 
     @GetMapping ("/return/{id}")
     public String returnBook(@PathVariable("id") long id){
 
         Book tobereturned=bookrepo.findOne(id);
-        tobereturned.setStatusF(true);
+        tobereturned.setStatus(true);
         bookrepo.save(tobereturned);
         return "redirect:/returnlist";
+    }
+    @RequestMapping("/returnlist")
+    public String ReturnListDisplay(Model model){
+        model.addAttribute("books", bookrepo.findAll());
+        return "returnlist";
     }
 
 

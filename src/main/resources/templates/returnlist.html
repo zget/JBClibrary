@@ -6,24 +6,24 @@
 </head>
 <body>
 <table>
-    <tr><b>book Inventory : </b></tr>
+    <b>book Inventory : </b>
     <tr>
 
-        <th>title</th>
-        <th>availability</th>
-        <th>action</th>
+        <td>title</td>
+        <td>availability</td>
+        <td>action</td>
     </tr>
 
     <tr th:each="book :${books}">
         <td th:text ="${book.title}"> </td>
         <td th:text ="${book.status}"> </td>
         <td  th:if="${book.status}">
-            <th>returned</th>
+            <th>returned</th></td>
 
         <td th:unless="${book.status}">
             <a th:href ="@{/return/{id}(id=${book.id})}">return </a></td>
 
-        </td>
+
     </tr>
 </table>
 <a href="/">Go to home page</a>
