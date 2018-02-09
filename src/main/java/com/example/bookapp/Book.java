@@ -18,9 +18,19 @@ public class Book {
     @NotNull
     @Size(min=3)
     private String title;
+    @NotNull
+    @Size(min=3)
+    private String author;
+    @NotNull
+    @Size(min=3)
+    private String yearofPublication;
 
+    private String isbn;
+
+    private String image;
     @NotNull
     private boolean status;
+
 
     public Book() {
         status=true;
@@ -50,6 +60,35 @@ public class Book {
         this.status = status;
     }
 
+    public String getAuthor() {
+        return author;
+    }
 
+    public void setAuthor(String author) {
+        this.author = author;
+    }
 
+    public String getYearofPublication() {
+        return yearofPublication;
+    }
+
+    public void setYearofPublication(String yearofPublication) {
+        this.yearofPublication = yearofPublication;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 }

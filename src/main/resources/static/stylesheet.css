@@ -3,21 +3,25 @@
 
 }
 
-.myflags{
-
-    height: 50px;
-    height: 50px;
+h1{
+    font-weight:bold;
+    font-size:100px;
+    font-style: italic;
+    color:darkslateblue;
 
 }
 
-img{
-
-    width: 00px;
-    height: 400px;
+.centered {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size:100px;
 }
-.myfoods{
 
-    width: 500px;
-    height: 500px;
+.bottom-right{
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
 
 }

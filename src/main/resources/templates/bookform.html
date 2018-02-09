@@ -3,20 +3,31 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Title</title>
+
 </head>
 <body>
 <form  th:action="@{/processbook}" th:object="${book}" method="post">
-    <tr>
-
-        <td>  <input type="hidden" th:field="*{id}"/></td>
-        <td><span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span><br/>
-            <input type="text" th:field="*{title}" />
-        </td>
 
 
+    <th>  <input type="hidden" th:field="*{id}"/></th><br/>
+        <label>title(required)</label> <th><span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span><br/>
+            <input type="text" th:field="*{title}" /><br/>
+        </th>
 
+    <label>Author(required)</label> <th><span th:if="${#fields.hasErrors('author')}" th:errors="*{author}"></span><br/>
+    <input type="text" th:field="*{author}" /><br/>
+        </th>
 
-    </tr>
+    <label>year of publication(required)</label>  <th><span th:if="${#fields.hasErrors('yearofPublication')}" th:errors="*{yearofPublication}"></span><br/>
+            <input type="text" th:field="*{yearofPublication}" /><br/>
+        </th>
+
+    <label>ISBN No(optional)</label>  <th><span th:if="${#fields.hasErrors('isbn')}" th:errors="*{isbn}"></span><br/>
+            <input type="text" th:field="*{isbn}" />
+        </th><br/>
+    <label>Image(optional)</label>  <th><span th:if="${#fields.hasErrors('image')}" th:errors="*{image}"></span><br/>
+    <input type="text" th:field="*{image}" /></th>
+
 
 
     <input type="submit" value="add book"/>

@@ -9,13 +9,21 @@
     <tr><b>book Inventory : </b></tr>
     <tr>
 
-        <th>title</th>
-        <th>availability</th>
-        <th>action</th>
+        <td>title</td>
+        <td>Author</td>
+        <td>publish year</td>
+        <td>ISBN</td>
+        <td>Image</td>
+
+        <td>action</td>
     </tr>
 
     <tr th:each="book :${books}">
         <td th:text ="${book.title}"> </td>
+        <td th:text ="${book.author}"> </td>
+        <td th:text ="${book.yearofPublication}"> </td>
+        <td th:text ="${book.isbn}"> </td>
+        <td th:text ="${book.image}"> </td>
         <td th:text ="${book.status}"> </td>
         <td  th:if="${book.status}">
             <a th:href ="@{/borrow/{id}(id=${book.id})}">borrow </a></td>
